@@ -37,14 +37,16 @@
   <mat-step [stepControl]="diagnosisTreatmentFormGroup">
     <form [formGroup]="diagnosisTreatmentFormGroup">
       <ng-template matStepLabel>Diagnosis and treatment</ng-template>
-      <mat-form-field class="p-1">
-        <mat-label>Diagnosis</mat-label>
-        <textarea matInput placeholder="Diagnosis" formControlName="diagnosis" required></textarea>
-      </mat-form-field>
-      <mat-form-field class="p-1">
-        <mat-label>Treatment</mat-label>
-        <textarea matInput placeholder="Treatment" formControlName="treatment" required></textarea>
-      </mat-form-field>
+      <div class="d-flex flex-md-row flex-column">
+        <mat-form-field class="textarea-visit p-1 flex-grow-1">
+          <mat-label>Diagnosis</mat-label>
+          <textarea matInput placeholder="Diagnosis" formControlName="diagnosis" required></textarea>
+        </mat-form-field>
+        <mat-form-field class="textarea-visit p-1 flex-grow-1">
+          <mat-label>Treatment</mat-label>
+          <textarea matInput placeholder="Treatment" formControlName="treatment" required></textarea>
+        </mat-form-field>
+      </div>
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button matStepperNext>Next</button>
