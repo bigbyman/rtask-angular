@@ -27,7 +27,7 @@ export class PatientItemComponent implements OnInit {
 
   ngOnInit() {
     this.patientBackup = Object.assign({}, this.patient);
-    if (this.patient.lastName === 'Last name') {
+    if (this.patient.id === undefined) {
       this.showEditButtons(true);
       this.showInputs(true);
     }
@@ -52,14 +52,30 @@ export class PatientItemComponent implements OnInit {
   }
 
   onSave() {
-    this.patientService.savePatient(this.patient).subscribe(() => {
-        this.showEditButtons(false);
-        this.showInputs(false);
-        this.showSnackBar('Success', 'HIDE');
-      },
-      (error) => {
-        this.showSnackBar(error, 'HIDE');
-      });
+    if (this.patient.id === undefined) {
+      console.log('POST');
+      this.patientService.savePatient(this.patient).subscribe((patient) => {
+          this.showEditButtons(false);
+          this.showInputs(false);
+          this.showSnackBar('Success', 'HIDE');
+          this.patient.id = patient.id;
+          this.patientBackup = Object.assign({}, this.patient);
+        },
+        (error) => {
+          this.showSnackBar(error, 'HIDE');
+        });
+    } else {
+      console.log('PUT');
+      this.patientService.putPatient(this.patient).subscribe(() => {
+          this.showEditButtons(false);
+          this.showInputs(false);
+          this.showSnackBar('Success', 'HIDE');
+          this.patientBackup = Object.assign({}, this.patient);
+        },
+        (error) => {
+          this.showSnackBar(error, 'HIDE');
+        });
+    }
   }
 
   onCancel() {
