@@ -35,6 +35,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatCardModule} from '@angular/material/card';
 import {FilterVisitsService} from './service/filter-visits.service';
+import {MatIconModule} from '@angular/material/icon';
 
 const appRoutes: Routes = [
   {path: 'patients', component: PatientsViewComponent},
@@ -82,7 +83,8 @@ const appRoutes: Routes = [
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatCardModule
+    MatCardModule,
+    MatIconModule
   ],
   providers: [
     PatientService,

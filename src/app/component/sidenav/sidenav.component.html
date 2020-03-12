@@ -1,16 +1,30 @@
 <mat-sidenav-container hasBackdrop="false">
   <mat-sidenav #sidenav disableClose="true" mode="over" class="sidenav" opened="true">
     <mat-nav-list>
-      <div class="sidenav">
-        <a routerLink="/patients">Patients</a>
-      </div>
-      <br>
-      <div class="sidenav">
-        <a routerLink="/visit">Add visit</a>
-      </div>
-      <div class="sidenav">
-        <a routerLink="/visits">Visits</a>
-      </div>
+      <mat-list-item class="sidenav">
+        <button mat-icon-button>
+          <mat-icon>
+            accessibility
+          </mat-icon>
+        </button>
+        <a matLine routerLink="/patients">Patients</a>
+      </mat-list-item>
+      <mat-list-item class="sidenav">
+        <button mat-icon-button>
+          <mat-icon>
+            assignment
+          </mat-icon>
+        </button>
+        <a matLine routerLink="/visit">Add visit</a>
+      </mat-list-item>
+      <mat-list-item class="sidenav">
+        <button mat-icon-button>
+          <mat-icon>
+            event
+          </mat-icon>
+        </button>
+        <a matLine routerLink="/visits">Visits</a>
+      </mat-list-item>
     </mat-nav-list>
 
   </mat-sidenav>
