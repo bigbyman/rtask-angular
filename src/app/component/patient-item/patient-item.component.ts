@@ -53,29 +53,31 @@ export class PatientItemComponent implements OnInit {
 
   onSave() {
     if (this.patient.id === undefined) {
-      console.log('POST');
-      this.patientService.savePatient(this.patient).subscribe((patient) => {
-          this.showEditButtons(false);
-          this.showInputs(false);
-          this.showSnackBar('Success', 'HIDE');
-          this.patient.id = patient.id;
-          this.patientBackup = Object.assign({}, this.patient);
-        },
-        (error) => {
-          this.showSnackBar(error, 'HIDE');
-        });
+      this.savePost();
     } else {
-      console.log('PUT');
-      this.patientService.putPatient(this.patient).subscribe(() => {
-          this.showEditButtons(false);
-          this.showInputs(false);
-          this.showSnackBar('Success', 'HIDE');
-          this.patientBackup = Object.assign({}, this.patient);
-        },
-        (error) => {
-          this.showSnackBar(error, 'HIDE');
-        });
+      this.savePut();
     }
+  }
+
+  savePost() {
+    this.patientService.savePatient(this.patient).subscribe((patient) => {
+        this.finishEditionSuccess();
+        this.patient.id = patient.id;
+        this.patientBackup = Object.assign({}, this.patient);
+      },
+      (error) => {
+        this.showSnackBar(error, 'HIDE');
+      });
+  }
+
+  savePut() {
+    this.patientService.putPatient(this.patient).subscribe(() => {
+        this.finishEditionSuccess();
+        this.patientBackup = Object.assign({}, this.patient);
+      },
+      (error) => {
+        this.showSnackBar(error, 'HIDE');
+      });
   }
 
   onCancel() {
@@ -121,6 +123,12 @@ export class PatientItemComponent implements OnInit {
 
   showSnackBar(message: string, action: string) {
     this._matSnackBar.open(message, action, {duration: 2000});
+  }
+
+  finishEditionSuccess() {
+    this.showEditButtons(false);
+    this.showInputs(false);
+    this.showSnackBar('Success', 'HIDE');
   }
 
 }
