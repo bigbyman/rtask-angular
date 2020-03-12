@@ -1,3 +1,12 @@
 .navbar {
   background: #45c4d0;
 }
+
+.sidenav-toggle {
+
+}
+
+.sidenav-toggle:hover {
+  background: #4cdfec;
+  border-radius: 0;
+}
