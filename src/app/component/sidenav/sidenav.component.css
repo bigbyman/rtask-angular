@@ -6,6 +6,20 @@
   border-right: 1px solid grey;
 }
 
+.sidenav-item {
+  color: white;
+  margin-bottom: 5px;
+  border-left: 2px solid #b2b2b2;
+  transition: .5s;
+}
+
+.sidenav-item:hover {
+  background: #3494a0;
+  transform: translateX(5px);
+  transition: .3s;
+  border-left: 1px solid black;
+}
+
 
 mat-sidenav-content {
   width: 100%;
@@ -18,4 +32,7 @@ mat-sidenav-container {
   mat-sidenav-container {
     height: calc(100vh - 56px) !important;
   }
+}
+
+.mat-drawer-container {
 }
