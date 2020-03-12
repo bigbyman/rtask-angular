@@ -15,7 +15,6 @@ export class VisitItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.visit);
     this.patient = this.visit.patient;
   }
 

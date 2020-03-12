@@ -22,7 +22,6 @@ export class PatientService {
   }
 
   public getAllPatientsBy(name: string, lastName: string, pesel: string): Observable<Patient[]> {
-    console.log(name + ';' + lastName + ';' + pesel);
     return this.http.get<Patient[]>(this.patientApiUrl + '/query?name=' + name + '&lastName=' + lastName + '&pesel=' + pesel);
   }
 
@@ -34,7 +33,6 @@ export class PatientService {
   }
 
   public deletePatient(id: number) {
-    console.log(this.patientApiUrl + '?id=' + id);
     return this.http.delete(this.patientApiUrl + '?id=' + id)
       .pipe(
         catchError(this.handleError)

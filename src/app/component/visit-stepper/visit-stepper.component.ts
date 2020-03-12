@@ -45,10 +45,6 @@ export class VisitStepperComponent implements OnInit {
     visit.treatment = this.diagnosisTreatmentFormGroup.controls.treatment.value;
     visit.localDate = new Date().toLocaleDateString();
 
-    console.log('ELO:' + this.selectFormGroup.controls.selectCtrl.value);
-    console.log('elo?');
-    console.log(visit);
-
     this.visitService.saveVisit(visit, this.selectFormGroup.controls.selectCtrl.value)
       .subscribe(() => {
         this._matSnackbar.open('Success', 'HIDE', {duration: 2000});
