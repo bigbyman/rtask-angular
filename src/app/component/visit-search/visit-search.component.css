@@ -1,0 +1,12 @@
+.visit-search {
+  margin-top: 10px;
+}
+
+.visit-search-item {
+  /*border-bottom: 2px solid black;*/
+  margin-right: 5px;
+}
+
+.visit-search-item button {
+  margin: 5px;
+}

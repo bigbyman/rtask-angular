@@ -1,1 +1,35 @@
-<p>patient-item works!</p>
+<mat-card class="patient-item-container" *ngIf="!isDeleted">
+
+  <mat-card-header>
+
+
+    <mat-card-title class="patient-data">
+      Patient
+    </mat-card-title>
+    <mat-card-subtitle class="patient-input-container d-flex flex-md-row flex-column align-items-center">
+      <mat-label>PESEL:</mat-label>
+      <input matInput type="text" (click)="setPeselEditable()" [(ngModel)]="patient.pesel"
+             [ngClass]="peselInputClass">
+      <mat-label>Name:</mat-label>
+      <input matInput type="text" (click)="setNameEditable()" [(ngModel)]="patient.name"
+             [ngClass]="nameInputClass">
+      <mat-label>Surname:</mat-label>
+      <input matInput type="text" (click)="setLastNameEditable()" [(ngModel)]="patient.lastName"
+             [ngClass]="lastNameInputClass">
+    </mat-card-subtitle>
+
+  </mat-card-header>
+
+  <mat-card-actions class="patient-actions d-flex flex-row justify-content-end">
+    <div *ngIf="showSaveButton">
+      <button mat-raised-button color="primary" (click)="onSave()">Save</button>
+    </div>
+    <div *ngIf="showCancelButton">
+      <button mat-raised-button color="warn" *ngIf="showCancelButton" (click)="onCancel()">Cancel</button>
+    </div>
+    <div>
+      <button mat-flat-button (click)="onDelete()">Delete</button>
+    </div>
+  </mat-card-actions>
+
+</mat-card>

@@ -1,8 +1,25 @@
-<div class="d-flex flex-row align-items-center">
-  Name
-  <input type="text">
-  Lastname
-  <input type="text">
-  Pesel
-  <input type="text">
-</div>
+<mat-expansion-panel class="expansion-panel" togglePosition="before">
+  <mat-expansion-panel-header>
+    Filter
+  </mat-expansion-panel-header>
+  <div class="d-flex flex-row align-items-center justify-content-center">
+    <div class="search-item">
+      Name
+      <input type="text" [(ngModel)]="name">
+    </div>
+    <div class="search-item">
+      Lastname
+      <input type="text" [(ngModel)]="lastName">
+    </div>
+    <div class="search-item">
+      Pesel
+      <input type="text" [(ngModel)]="pesel">
+    </div>
+    <div class="search-item">
+      <button mat-flat-button (click)="onSearch()">Search</button>
+    </div>
+    <div class="search-item">
+      <button mat-raised-button color="primary" (click)="onShowAll()">Show all</button>
+    </div>
+  </div>
+</mat-expansion-panel>

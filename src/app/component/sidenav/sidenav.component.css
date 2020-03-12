@@ -1,0 +1,22 @@
+.sidenav {
+  background: #232323;
+  color: white;
+  min-width: 200px;
+  box-shadow: none !important;
+  border-right: 1px solid grey;
+
+}
+
+
+mat-sidenav-content {
+  width: 100%;
+}
+mat-sidenav-container {
+  height: calc(100vh - 64px) !important;
+}
+
+@media (max-width: 600px) {
+  mat-sidenav-container {
+    height: calc(100vh - 56px) !important;
+  }
+}

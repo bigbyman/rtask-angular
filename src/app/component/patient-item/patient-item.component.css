@@ -1,0 +1,33 @@
+.hidden-input {
+  border: 1px solid rgba(0,0,0,0);
+  background: inherit;
+}
+
+.shown-input {
+  border: 1px solid black;
+  background: white;
+}
+
+.hidden-input, .shown-input {
+  margin: 5px;
+  padding: 5px;
+}
+
+.patient-input-container {
+}
+
+.patient-item-container {
+  background: rgba(68, 77, 68, 0.51);
+  border-bottom: 3px solid black;
+  border-left: 2px solid black;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 5px;
+  padding: 5px;
+}
+
+.patient-actions > div {
+  margin: 5px;
+  padding: 5px;
+}
+

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FilterPatientsService} from '../../service/filter-patients.service';
 
 @Component({
   selector: 'app-patient-search',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientSearchComponent implements OnInit {
 
-  constructor() { }
+  name = '';
+  lastName = '';
+  pesel = '';
+
+  constructor(private filterPatientsService: FilterPatientsService) {
+  }
 
   ngOnInit() {
+  }
+
+  onSearch() {
+    this.filterPatientsService.setData(this.name, this.lastName, this.pesel);
+  }
+
+  onShowAll() {
+    this.filterPatientsService.setData('', '', '');
   }
 
 }

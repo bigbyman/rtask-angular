@@ -1,0 +1,65 @@
+<mat-vertical-stepper #stepper>
+  <mat-step [stepControl]="selectFormGroup">
+    <form [formGroup]="selectFormGroup">
+      <ng-template matStepLabel>Select patient</ng-template>
+      <mat-form-field>
+        <mat-label>Choose patient</mat-label>
+        <mat-select required formControlName="selectCtrl">
+          <mat-option *ngFor="let patient of this.patients" [value]="patient.id">
+            {{patient.name}} {{patient.lastName}} PESEL: {{patient.pesel}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="caseStudyFormGroup">
+    <form [formGroup]="caseStudyFormGroup">
+      <ng-template matStepLabel>Case study</ng-template>
+      <div class="d-flex flex-md-row flex-column">
+        <mat-form-field class="textarea-visit p-1 flex-grow-1">
+          <mat-label>Interview examination</mat-label>
+          <textarea matInput placeholder="Interview" formControlName="interview" required></textarea>
+        </mat-form-field>
+        <mat-form-field class="textarea-visit p-1 flex-grow-1">
+          <mat-label>Physical examination</mat-label>
+          <textarea matInput placeholder="Physical examination" formControlName="physical" required></textarea>
+        </mat-form-field>
+      </div>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="diagnosisTreatmentFormGroup">
+    <form [formGroup]="diagnosisTreatmentFormGroup">
+      <ng-template matStepLabel>Diagnosis and treatment</ng-template>
+      <mat-form-field class="p-1">
+        <mat-label>Diagnosis</mat-label>
+        <textarea matInput placeholder="Diagnosis" formControlName="diagnosis" required></textarea>
+      </mat-form-field>
+      <mat-form-field class="p-1">
+        <mat-label>Treatment</mat-label>
+        <textarea matInput placeholder="Treatment" formControlName="treatment" required></textarea>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+      <button mat-raised-button (click)="onSave()">Save</button>
+    </div>
+    <div>
+    </div>
+  </mat-step>
+</mat-vertical-stepper>
