@@ -1,25 +1,38 @@
 <mat-card class="patient-item-container" *ngIf="!isDeleted">
-
-  <mat-card-header>
-
-
-    <mat-card-title class="patient-data">
+  <mat-card-header class="patient-data">
+    <mat-card-title class="patient-data d-flex align-items-center">
+      <i class="material-icons">
+        account_box
+      </i>
       Patient
+      <span class="patient-name">
+        {{patientBackup.name}} {{patientBackup.lastName}}
+      </span>
     </mat-card-title>
-    <mat-card-subtitle class="patient-input-container d-flex flex-md-row flex-column align-items-center">
-      <mat-label>PESEL:</mat-label>
-      <input matInput type="text" (click)="setPeselEditable()" [(ngModel)]="patient.pesel"
-             [ngClass]="peselInputClass">
-      <mat-label>Name:</mat-label>
-      <input matInput type="text" (click)="setNameEditable()" [(ngModel)]="patient.name"
-             [ngClass]="nameInputClass">
-      <mat-label>Surname:</mat-label>
-      <input matInput type="text" (click)="setLastNameEditable()" [(ngModel)]="patient.lastName"
-             [ngClass]="lastNameInputClass">
+    <mat-card-subtitle>
+      PESEL: {{patientBackup.pesel}}
     </mat-card-subtitle>
 
   </mat-card-header>
 
+  <mat-card-subtitle
+    class="patient-input-container d-flex flex-md-row align-items-md-center flex-column align-items-start">
+    <div (click)="setNameEditable()">
+      <mat-label>Name:</mat-label>
+      <input matInput type="text" (click)="setNameEditable()" [(ngModel)]="patient.name"
+             [ngClass]="nameInputClass">
+    </div>
+    <div (click)="setLastNameEditable()">
+      <mat-label>Surname:</mat-label>
+      <input matInput type="text" (click)="setLastNameEditable()" [(ngModel)]="patient.lastName"
+             [ngClass]="lastNameInputClass">
+    </div>
+    <div (click)="setPeselEditable()">
+      <mat-label>PESEL:</mat-label>
+      <input matInput type="text" (click)="setPeselEditable()" [(ngModel)]="patient.pesel"
+             [ngClass]="peselInputClass">
+    </div>
+  </mat-card-subtitle>
   <mat-card-actions class="patient-actions d-flex flex-row justify-content-end">
     <div *ngIf="showSaveButton">
       <button mat-raised-button color="primary" (click)="onSave()">Save</button>
@@ -28,7 +41,7 @@
       <button mat-raised-button color="warn" *ngIf="showCancelButton" (click)="onCancel()">Cancel</button>
     </div>
     <div>
-      <button mat-flat-button (click)="onDelete()">Delete</button>
+      <button mat-stroked-button (click)="onDelete()">Delete</button>
     </div>
   </mat-card-actions>
 

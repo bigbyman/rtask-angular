@@ -1,6 +1,12 @@
 .hidden-input {
   border: 1px solid rgba(0,0,0,0);
   background: inherit;
+  cursor: pointer;
+}
+
+.hidden-input:hover {
+  background: #b7f1f6;
+  transition: .3s;
 }
 
 .shown-input {
@@ -14,16 +20,19 @@
 }
 
 .patient-input-container {
+  padding:10px;
+}
+
+.patient-item-container div {
+  cursor: pointer;
 }
 
 .patient-item-container {
-  background: rgba(68, 77, 68, 0.51);
-  border-bottom: 3px solid black;
-  border-left: 2px solid black;
-  border-radius: 0;
-  box-shadow: none;
+  border-top: 1px solid black;
+  border-bottom: 2px solid black;
   margin: 5px;
   padding: 5px;
+  width: 100%;
 }
 
 .patient-actions > div {
@@ -31,3 +40,10 @@
   padding: 5px;
 }
 
+.patient-name {
+  font-weight: 350;
+  padding-left: 10px;
+}
+
+.patient-data {
+}
