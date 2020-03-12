@@ -32,6 +32,13 @@ export class PatientService {
       );
   }
 
+  public putPatient(patient: Patient) {
+    return this.http.put<Patient>(this.patientApiUrl, patient)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
   public deletePatient(id: number) {
     return this.http.delete(this.patientApiUrl + '?id=' + id)
       .pipe(
