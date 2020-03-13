@@ -24,7 +24,7 @@ export class VisitListComponent implements OnInit {
             this.visits = visits;
           },
           (error => {
-            this.showSnackBar(error, 'HIDE', true);
+            this.showSnackBar(error, 'HIDE', false);
             this.filterVisitsService.setData('', '');
           }));
       } else if (data.date === null && data.pesel !== null) {
@@ -32,7 +32,7 @@ export class VisitListComponent implements OnInit {
             this.visits = visits;
           },
           (error => {
-            this.showSnackBar(error, 'HIDE', true);
+            this.showSnackBar(error, 'HIDE', false);
             this.filterVisitsService.setData('', '');
           }));
       } else if (data.date === '' && data.pesel === '') {

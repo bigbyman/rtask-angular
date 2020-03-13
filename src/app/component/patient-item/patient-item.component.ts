@@ -53,9 +53,9 @@ export class PatientItemComponent implements OnInit {
 
   onSave() {
     if (!/^\d+$/.test(this.patient.pesel)) {
-      this.showSnackBar('Pesel must contain only digits', 'HIDE', true);
+      this.showSnackBar('Pesel must contain only digits', 'HIDE', false);
     } else if (this.patient.pesel.length !== 11) {
-      this.showSnackBar('PESEL must contain 11 digits', 'HIDE', true);
+    this.showSnackBar('PESEL must contain 11 digits', 'HIDE', false);
     } else {
       if (this.patient.id === undefined) {
         this.savePost();
@@ -72,7 +72,7 @@ export class PatientItemComponent implements OnInit {
         this.patientBackup = Object.assign({}, this.patient);
       },
       (error) => {
-        this.showSnackBar(error, 'HIDE', true);
+        this.showSnackBar(error, 'HIDE', false);
       });
   }
 
@@ -82,7 +82,7 @@ export class PatientItemComponent implements OnInit {
         this.patientBackup = Object.assign({}, this.patient);
       },
       (error) => {
-        this.showSnackBar(error, 'HIDE', true);
+        this.showSnackBar(error, 'HIDE', false);
       });
   }
 
@@ -104,7 +104,7 @@ export class PatientItemComponent implements OnInit {
           this.isDeleted = true;
         },
           (error => {
-            this.showSnackBar(error, 'HIDE', true);
+            this.showSnackBar(error, 'HIDE', false);
           }));
 
     } else {
@@ -141,6 +141,6 @@ export class PatientItemComponent implements OnInit {
   finishEditionSuccess() {
     this.showEditButtons(false);
     this.showInputs(false);
-    this.showSnackBar('Success', 'HIDE', false);
+    this.showSnackBar('Success', 'HIDE', true);
   }
 }
