@@ -26,6 +26,7 @@ export class PatientListComponent implements OnInit {
         });
     });
     this.getAllPatients();
+    this.addPatientService.setData(false);
     this.addPatientService.data.subscribe(data => {
       if (data) {
         this.addNewPatient();
