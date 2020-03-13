@@ -53,3 +53,13 @@
 
 .patient-data {
 }
+
+::ng-deep snack-bar-container.alert-red{
+  color: white;
+  background-color: darkred;
+}
+
+::ng-deep snack-bar-container.alert-red .mat-simple-snackbar-action {
+  color: #b2b2b2;
+
+}

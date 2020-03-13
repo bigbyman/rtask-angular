@@ -52,10 +52,16 @@ export class PatientItemComponent implements OnInit {
   }
 
   onSave() {
-    if (this.patient.id === undefined) {
-      this.savePost();
+    if (!/^\d+$/.test(this.patient.pesel)) {
+      this.showSnackBar('Pesel must contain only digits', 'HIDE', true);
+    } else if (this.patient.pesel.length !== 11) {
+      this.showSnackBar('PESEL must contain 11 digits', 'HIDE', true);
     } else {
-      this.savePut();
+      if (this.patient.id === undefined) {
+        this.savePost();
+      } else {
+        this.savePut();
+      }
     }
   }
 
@@ -66,7 +72,7 @@ export class PatientItemComponent implements OnInit {
         this.patientBackup = Object.assign({}, this.patient);
       },
       (error) => {
-        this.showSnackBar(error, 'HIDE');
+        this.showSnackBar(error, 'HIDE', true);
       });
   }
 
@@ -76,7 +82,7 @@ export class PatientItemComponent implements OnInit {
         this.patientBackup = Object.assign({}, this.patient);
       },
       (error) => {
-        this.showSnackBar(error, 'HIDE');
+        this.showSnackBar(error, 'HIDE', true);
       });
   }
 
@@ -96,7 +102,10 @@ export class PatientItemComponent implements OnInit {
       this.patientService.deletePatient(this.patient.id)
         .subscribe((v) => {
           this.isDeleted = true;
-        });
+        },
+          (error => {
+            this.showSnackBar(error, 'HIDE', true);
+          }));
 
     } else {
       this.isDeleted = true;
@@ -121,14 +130,17 @@ export class PatientItemComponent implements OnInit {
     }
   }
 
-  showSnackBar(message: string, action: string) {
-    this._matSnackBar.open(message, action, {duration: 2000});
+  showSnackBar(message: string, action: string, error: boolean) {
+    if (!error) {
+      this._matSnackBar.open(message, action, {duration: 2000});
+    } else {
+      this._matSnackBar.open(message, action, {duration: 1500, panelClass: 'alert-red'});
+    }
   }
 
   finishEditionSuccess() {
     this.showEditButtons(false);
     this.showInputs(false);
-    this.showSnackBar('Success', 'HIDE');
+    this.showSnackBar('Success', 'HIDE', false);
   }
-
 }
