@@ -2,4 +2,7 @@
   <div *ngFor="let visit of visits">
     <app-visit-item [visit]="visit"></app-visit-item>
   </div>
+  <div *ngIf="visits?.length == 0">
+    No visits
+  </div>
 </div>

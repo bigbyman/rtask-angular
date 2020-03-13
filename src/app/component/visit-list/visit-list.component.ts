@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {VisitService} from '../../service/visit.service';
 import {Visit} from '../../model/visit';
 import {FilterVisitsService} from '../../service/filter-visits.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-visit-list',
@@ -12,16 +13,29 @@ export class VisitListComponent implements OnInit {
   visits: Visit[];
 
   constructor(private visitService: VisitService,
-              private filterVisitsService: FilterVisitsService,) {
+              private filterVisitsService: FilterVisitsService,
+              private _matSnackBar: MatSnackBar) {
   }
 
   ngOnInit(): void {
     this.filterVisitsService.data.subscribe((data) => {
-      if(data.date !== null && data.pesel === null){
-        this.visitService.getAllVisitsByDate(data.date).subscribe(visits => this.visits = visits);
+      if (data.date !== null && data.pesel === null) {
+        this.visitService.getAllVisitsByDate(data.date).subscribe(visits => {
+            this.visits = visits;
+          },
+          (error => {
+            this.showSnackBar(error, 'HIDE', true);
+            this.filterVisitsService.setData('', '');
+          }));
       } else if (data.date === null && data.pesel !== null) {
-        this.visitService.getAllVisitsByPesel(data.pesel).subscribe(visits => this.visits = visits);
-      } else if(data.date === '' && data.pesel === ''){
+        this.visitService.getAllVisitsByPesel(data.pesel).subscribe(visits => {
+            this.visits = visits;
+          },
+          (error => {
+            this.showSnackBar(error, 'HIDE', true);
+            this.filterVisitsService.setData('', '');
+          }));
+      } else if (data.date === '' && data.pesel === '') {
         this.getAllVisits();
       }
     });
@@ -31,5 +45,13 @@ export class VisitListComponent implements OnInit {
   private getAllVisits() {
     this.visitService.getAllVisits()
       .subscribe(data => this.visits = data);
+  }
+
+  showSnackBar(message: string, action: string, error: boolean) {
+    if (!error) {
+      this._matSnackBar.open(message, action, {duration: 2000});
+    } else {
+      this._matSnackBar.open(message, action, {duration: 1500, panelClass: 'alert-red'});
+    }
   }
 }

@@ -52,7 +52,7 @@ export class VisitService {
         `body was: ${error.error}`);
     }
     return throwError(
-      'Something bad happened. Please try again later.');
+      error.error.message);
   }
 
 }
