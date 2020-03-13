@@ -1,9 +1,10 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Patient} from '../../model/patient';
 import {VisitService} from '../../service/visit.service';
 import {Visit} from '../../model/visit';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {MatStepper} from '@angular/material/stepper';
 
 @Component({
   selector: 'app-visit-stepper',
@@ -11,6 +12,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
   styleUrls: ['./visit-stepper.component.css']
 })
 export class VisitStepperComponent implements OnInit {
+  @ViewChild('stepper', {static: true}) stepper: MatStepper;
   @Input() patients: Patient[];
 
   textAreaMaxLength = 255;
@@ -50,6 +52,7 @@ export class VisitStepperComponent implements OnInit {
     this.visitService.saveVisit(visit, this.selectFormGroup.controls.selectCtrl.value)
       .subscribe(() => {
         this._matSnackbar.open('Success', 'HIDE', {duration: 2000});
+        this.stepper.reset();
         },
         (error => {
           this._matSnackbar.open(error, 'HIDE', {duration: 2000});
