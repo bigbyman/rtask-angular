@@ -2,6 +2,9 @@
   padding: 10px;
   width: 100%;
 }
+.search-item input {
+  width: 100%;
+}
 
 .expansion-panel {
   position: sticky;
