@@ -9,7 +9,7 @@ import {MatStepper} from '@angular/material/stepper';
 @Component({
   selector: 'app-visit-stepper',
   templateUrl: './visit-stepper.component.html',
-  styleUrls: ['./visit-stepper.component.css']
+  styleUrls: ['./visit-stepper.component.scss']
 })
 export class VisitStepperComponent implements OnInit {
   @ViewChild('stepper', {static: true}) stepper: MatStepper;

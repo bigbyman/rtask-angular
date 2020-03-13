@@ -5,7 +5,7 @@ import {PatientService} from '../../service/patient.service';
 @Component({
   selector: 'app-add-visit',
   templateUrl: './add-visit.component.html',
-  styleUrls: ['./add-visit.component.css']
+  styleUrls: ['./add-visit.component.scss']
 })
 export class AddVisitComponent implements OnInit {
 

@@ -7,7 +7,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 @Component({
   selector: 'app-visit-list',
   templateUrl: './visit-list.component.html',
-  styleUrls: ['./visit-list.component.css']
+  styleUrls: ['./visit-list.component.scss']
 })
 export class VisitListComponent implements OnInit {
   visits: Visit[];

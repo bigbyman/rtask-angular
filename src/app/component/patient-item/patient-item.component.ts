@@ -6,7 +6,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 @Component({
   selector: 'app-patient-item',
   templateUrl: './patient-item.component.html',
-  styleUrls: ['./patient-item.component.css']
+  styleUrls: ['./patient-item.component.scss']
 })
 export class PatientItemComponent implements OnInit {
 

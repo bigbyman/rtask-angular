@@ -5,7 +5,7 @@ import {Patient} from '../../model/patient';
 @Component({
   selector: 'app-visit-item',
   templateUrl: './visit-item.component.html',
-  styleUrls: ['./visit-item.component.css']
+  styleUrls: ['./visit-item.component.scss']
 })
 export class VisitItemComponent implements OnInit {
 

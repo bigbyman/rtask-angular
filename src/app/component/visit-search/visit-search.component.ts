@@ -4,7 +4,7 @@ import {FilterVisitsService} from '../../service/filter-visits.service';
 @Component({
   selector: 'app-visit-search',
   templateUrl: './visit-search.component.html',
-  styleUrls: ['./visit-search.component.css']
+  styleUrls: ['./visit-search.component.scss']
 })
 export class VisitSearchComponent implements OnInit {
 
