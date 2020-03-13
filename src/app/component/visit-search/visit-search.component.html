@@ -1,5 +1,8 @@
-<mat-expansion-panel class="visit-search" togglePosition="before">
-  <mat-expansion-panel-header>
+<mat-expansion-panel class="visit-search" togglePosition="before" hideToggle="true" expanded="true">
+  <mat-expansion-panel-header class="d-flex align-items-center">
+    <i class="material-icons search-icon">
+      search
+    </i>
     Filter
   </mat-expansion-panel-header>
   <div class="d-flex flex-column justify-content-between align-items-center">
@@ -17,8 +20,6 @@
       </mat-form-field>
       <button mat-flat-button (click)="onDateSearch()">Search</button>
     </div>
-    <div class="align-self-end">
-      <button mat-raised-button color="primary" (click)="onShowAll()">Show all</button>
-    </div>
+      <button class="align-self-end align-self-md-center show-all-button" mat-raised-button color="primary" (click)="onShowAll()">Show all</button>
   </div>
 </mat-expansion-panel>

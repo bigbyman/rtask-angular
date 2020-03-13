@@ -12,7 +12,7 @@
           </mat-select>
         </mat-form-field>
         <div>
-          <button mat-raised-button matStepperNext>Next</button>
+          <button mat-raised-button color="primary" matStepperNext>Next</button>
         </div>
       </form>
     </mat-step>
@@ -33,7 +33,7 @@
         </div>
         <div>
           <button class="m-1" mat-button matStepperPrevious>Back</button>
-          <button class="m-1" mat-raised-button matStepperNext>Next</button>
+          <button class="m-1" mat-raised-button color="primary" matStepperNext>Next</button>
         </div>
       </form>
     </mat-step>
@@ -54,13 +54,13 @@
         </div>
         <div>
           <button class="m-1" mat-button matStepperPrevious>Back</button>
-          <button class="m-1" mat-raised-button matStepperNext>Next</button>
+          <button class="m-1" mat-raised-button color="primary" matStepperNext>Next</button>
         </div>
       </form>
     </mat-step>
     <mat-step>
       <ng-template matStepLabel>Done</ng-template>
-      <p>You are now done.</p>
+      <p>Click Save button to save the visit.</p>
       <div>
         <button class="m-1" mat-stroked-button matStepperPrevious>Back</button>
         <button class="m-1" mat-stroked-button (click)="stepper.reset()">Reset</button>

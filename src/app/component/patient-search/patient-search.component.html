@@ -1,6 +1,9 @@
 <div class="expansion-panel">
   <mat-expansion-panel togglePosition="before" expanded="true" [hideToggle]="true">
-    <mat-expansion-panel-header>
+    <mat-expansion-panel-header class="d-flex align-items-center">
+      <i class="material-icons search-icon">
+        search
+      </i>
       Filter
     </mat-expansion-panel-header>
     <div class="d-flex flex-column align-items-start justify-content-center">
@@ -27,6 +30,6 @@
     </div>
   </mat-expansion-panel>
   <div>
-    <button mat-raised-button (click)="addNewPatient()" style="margin-top: 10px; width:100%;">Add patient</button>
+    <button mat-raised-button color="primary" (click)="addNewPatient()" style="margin-top: 10px; width:100%;">Add patient</button>
   </div>
 </div>

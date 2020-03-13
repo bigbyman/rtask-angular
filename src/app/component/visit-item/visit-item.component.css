@@ -1,8 +1,17 @@
 .visit-item {
   margin-bottom: 10px;
-
+  border-top: 1px solid black;
+  border-bottom: 2px solid black;
 }
 
 .visit-info-item {
   margin: 10px;
+}
+
+.visit-data-icon {
+  color: #3494a0;
+}
+
+.patient-icon, .event-icon {
+  color: #3494a0;
 }

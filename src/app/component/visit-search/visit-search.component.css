@@ -1,5 +1,7 @@
 .visit-search {
-  margin-top: 10px;
+  position: sticky;
+  position: -webkit-sticky;
+  top:10px;
 }
 
 .visit-search-item {
@@ -9,4 +11,12 @@
 
 .visit-search-item button {
   margin: 5px;
+}
+
+.show-all-button {
+  width: 100%;
+}
+
+.search-icon {
+  color: #3494a0;
 }
