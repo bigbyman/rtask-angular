@@ -4,4 +4,9 @@
 
 mat-vertical-stepper {
   padding: 10px;
+  height: 100%;
+}
+
+.stepper-container {
+  height: 100%;
 }

@@ -13,6 +13,8 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 export class VisitStepperComponent implements OnInit {
   @Input() patients: Patient[];
 
+  textAreaMaxLength = 255;
+
   caseStudyFormGroup: FormGroup;
   diagnosisTreatmentFormGroup: FormGroup;
   selectFormGroup: FormGroup;
@@ -50,7 +52,6 @@ export class VisitStepperComponent implements OnInit {
         this._matSnackbar.open('Success', 'HIDE', {duration: 2000});
         },
         (error => {
-
           this._matSnackbar.open(error, 'HIDE', {duration: 2000});
         }));
   }
