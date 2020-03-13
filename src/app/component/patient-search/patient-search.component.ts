@@ -26,6 +26,9 @@ export class PatientSearchComponent implements OnInit {
 
   onShowAll() {
     this.filterPatientsService.setData('', '', '');
+    this.name = '';
+    this.lastName = '';
+    this.pesel = '';
   }
 
   addNewPatient() {

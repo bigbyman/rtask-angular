@@ -27,6 +27,8 @@ export class VisitSearchComponent implements OnInit {
 
   onShowAll() {
     this.filterVisitsService.setData('', '');
+    this.pesel = '';
+    this.date = '';
   }
 
 }
