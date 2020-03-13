@@ -47,8 +47,8 @@ export class VisitListComponent implements OnInit {
       .subscribe(data => this.visits = data);
   }
 
-  showSnackBar(message: string, action: string, error: boolean) {
-    if (!error) {
+  showSnackBar(message: string, action: string, success: boolean) {
+    if (success) {
       this._matSnackBar.open(message, action, {duration: 2000});
     } else {
       this._matSnackBar.open(message, action, {duration: 1500, panelClass: 'alert-red'});
