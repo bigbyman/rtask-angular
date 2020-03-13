@@ -50,7 +50,8 @@ export class PatientListComponent implements OnInit {
     patient.lastName = 'Last name';
     patient.pesel = 'Pesel';
 
-    this.patients.push(patient);
+    // this.patients.push(patient);
+    this.patients.unshift(patient);
   }
 
 }
