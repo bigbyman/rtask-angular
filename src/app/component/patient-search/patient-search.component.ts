@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FilterPatientsService} from '../../service/filter-patients.service';
+import {AddPatientService} from '../../service/add-patient.service';
 
 @Component({
   selector: 'app-patient-search',
@@ -12,7 +13,8 @@ export class PatientSearchComponent implements OnInit {
   lastName = '';
   pesel = '';
 
-  constructor(private filterPatientsService: FilterPatientsService) {
+  constructor(private filterPatientsService: FilterPatientsService,
+              private addPatientService: AddPatientService) {
   }
 
   ngOnInit() {
@@ -24,6 +26,10 @@ export class PatientSearchComponent implements OnInit {
 
   onShowAll() {
     this.filterPatientsService.setData('', '', '');
+  }
+
+  addNewPatient() {
+    this.addPatientService.setData(true);
   }
 
 }

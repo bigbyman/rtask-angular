@@ -1,4 +1,3 @@
-<button mat-raised-button (click)="addNewPatient()" style="margin: 20px;">Add patient</button>
 <div class="patient-list-container d-flex flex-column align-items-center">
   <div *ngFor="let patient of patients" class="patient-list-item">
     <app-patient-item [patient]="patient"></app-patient-item>

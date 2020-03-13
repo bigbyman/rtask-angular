@@ -1,25 +1,32 @@
-<mat-expansion-panel class="expansion-panel" togglePosition="before">
-  <mat-expansion-panel-header>
-    Filter
-  </mat-expansion-panel-header>
-  <div class="d-flex flex-row align-items-center justify-content-center">
-    <div class="search-item">
-      Name
-      <input type="text" [(ngModel)]="name">
+<div class="expansion-panel">
+  <mat-expansion-panel togglePosition="before" expanded="true" [hideToggle]="true">
+    <mat-expansion-panel-header>
+      Filter
+    </mat-expansion-panel-header>
+    <div class="d-flex flex-column align-items-start justify-content-center">
+      <div class="search-item">
+        Name
+        <input type="text" [(ngModel)]="name">
+      </div>
+      <div class="search-item">
+        Last
+        <input type="text" [(ngModel)]="lastName">
+      </div>
+      <div class="search-item">
+        Pesel
+        <input type="text" [(ngModel)]="pesel">
+      </div>
+      <div class="search-actions d-flex flex-row justify-content-between">
+        <div class="search-item">
+          <button mat-raised-button color="primary" (click)="onShowAll()">Show all</button>
+        </div>
+        <div class="search-item">
+          <button mat-flat-button (click)="onSearch()">Search</button>
+        </div>
+      </div>
     </div>
-    <div class="search-item">
-      Lastname
-      <input type="text" [(ngModel)]="lastName">
-    </div>
-    <div class="search-item">
-      Pesel
-      <input type="text" [(ngModel)]="pesel">
-    </div>
-    <div class="search-item">
-      <button mat-flat-button (click)="onSearch()">Search</button>
-    </div>
-    <div class="search-item">
-      <button mat-raised-button color="primary" (click)="onShowAll()">Show all</button>
-    </div>
+  </mat-expansion-panel>
+  <div>
+    <button mat-raised-button (click)="addNewPatient()" style="margin-top: 10px; width:100%;">Add patient</button>
   </div>
-</mat-expansion-panel>
+</div>

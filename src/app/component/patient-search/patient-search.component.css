@@ -1,7 +1,14 @@
 .search-item {
   padding: 10px;
+  width: 100%;
 }
 
 .expansion-panel {
-  /*max-width: 50%;*/
+  position: sticky;
+  position: -webkit-sticky;
+  top:30px;
+}
+
+.search-actions {
+  width: 100%;
 }

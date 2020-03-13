@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {PatientService} from '../../service/patient.service';
 import {Patient} from '../../model/patient';
 import {FilterPatientsService} from '../../service/filter-patients.service';
+import {AddPatientService} from '../../service/add-patient.service';
 
 @Component({
   selector: 'app-patient-list',
@@ -13,7 +14,8 @@ export class PatientListComponent implements OnInit {
   patients: Patient[];
 
   constructor(private patientService: PatientService,
-              private filterPatientsService: FilterPatientsService) {
+              private filterPatientsService: FilterPatientsService,
+              private addPatientService: AddPatientService) {
   }
 
   ngOnInit() {
@@ -24,11 +26,20 @@ export class PatientListComponent implements OnInit {
         });
     });
     this.getAllPatients();
+    this.addPatientService.data.subscribe(data => {
+      if (data) {
+        this.addNewPatient();
+      }
+    });
   }
 
   private getAllPatients() {
     this.patientService.getAllPatients()
-      .subscribe(data => this.patients = data);
+      .subscribe(data => {
+        this.patients = data;
+
+      });
+
 
   }
 
