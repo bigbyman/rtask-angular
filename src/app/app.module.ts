@@ -36,6 +36,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import {MatCardModule} from '@angular/material/card';
 import {FilterVisitsService} from './service/filter-visits.service';
 import {MatIconModule} from '@angular/material/icon';
+import {AddPatientService} from './service/add-patient.service';
 
 const appRoutes: Routes = [
   {path: 'patients', component: PatientsViewComponent},
@@ -91,7 +92,8 @@ const appRoutes: Routes = [
     VisitService,
     FilterPatientsService,
     MatDatepickerModule,
-    FilterVisitsService
+    FilterVisitsService,
+    AddPatientService
   ],
   bootstrap: [AppComponent]
 })
