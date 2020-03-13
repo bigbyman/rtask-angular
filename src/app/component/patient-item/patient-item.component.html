@@ -18,18 +18,18 @@
   <mat-card-subtitle
     class="patient-input-container d-flex flex-md-row align-items-md-center flex-column align-items-start">
     <div (click)="setNameEditable()">
-      <mat-label>Name:</mat-label>
-      <input matInput type="text" (click)="setNameEditable()" [(ngModel)]="patient.name"
+      <label>Name:</label>
+      <input  type="text" (click)="setNameEditable()" [(ngModel)]="patient.name"
              [ngClass]="nameInputClass">
     </div>
     <div (click)="setLastNameEditable()">
-      <mat-label>Surname:</mat-label>
-      <input matInput type="text" (click)="setLastNameEditable()" [(ngModel)]="patient.lastName"
+      <label>Surname:</label>
+      <input  type="text" (click)="setLastNameEditable()" [(ngModel)]="patient.lastName"
              [ngClass]="lastNameInputClass">
     </div>
     <div (click)="setPeselEditable()">
-      <mat-label>PESEL:</mat-label>
-      <input matInput type="text" (click)="setPeselEditable()" [(ngModel)]="patient.pesel"
+      <label>PESEL:</label>
+      <input type="text" (click)="setPeselEditable()" [(ngModel)]="patient.pesel"
              [ngClass]="peselInputClass">
     </div>
   </mat-card-subtitle>

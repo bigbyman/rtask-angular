@@ -17,6 +17,7 @@
 .hidden-input, .shown-input {
   margin: 5px;
   padding: 5px;
+  font-weight: 500 !important;
 }
 
 .patient-input-container {
