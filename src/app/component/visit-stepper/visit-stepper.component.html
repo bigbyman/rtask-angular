@@ -1,13 +1,24 @@
 <div class="stepper-container">
-  <mat-vertical-stepper #stepper>
-    <mat-step [stepControl]="selectFormGroup">
+  <mat-vertical-stepper #stepper style="height: 100%;" linear="true">
+    <mat-step [stepControl]="selectFormGroup" style="height: 100%;">
       <form [formGroup]="selectFormGroup">
         <ng-template matStepLabel>Select patient</ng-template>
-        <mat-form-field>
-          <mat-label>Choose patient</mat-label>
-          <mat-select required formControlName="selectCtrl">
-            <mat-option *ngFor="let patient of this.patients" [value]="patient.id">
-              {{patient.name}} {{patient.lastName}} PESEL: {{patient.pesel}}
+        <mat-form-field style="width: 100%;">
+          <mat-label>Choose patient
+          </mat-label>
+          <mat-select matInput formControlName="selectCtrl" required>
+            <mat-select-trigger class="d-flex align-items-center justify-content-start">
+              <mat-icon>account_box</mat-icon>
+              {{selectFormGroup.controls.selectCtrl.value?.name}} {{selectFormGroup.controls.selectCtrl.value?.lastName}}
+              | PESEL: {{selectFormGroup.controls.selectCtrl.value?.pesel}}
+            </mat-select-trigger>
+            <mat-option *ngIf="isSelectLoading">
+              <mat-progress-spinner diameter="20" mode="indeterminate"></mat-progress-spinner>
+            </mat-option>
+            <mat-option *ngFor="let patient of this.patients" [value]="patient"
+                        class="d-flex justify-content-center align-items-start">
+              <mat-icon>account_box</mat-icon>
+              PESEL: {{patient.pesel}} | {{patient.name}} {{patient.lastName}}
             </mat-option>
           </mat-select>
         </mat-form-field>
@@ -31,7 +42,7 @@
                       formControlName="physical" required></textarea>
           </mat-form-field>
         </div>
-        <div>
+        <div class="d-flex justify-content-between">
           <button class="m-1" mat-button matStepperPrevious>Back</button>
           <button class="m-1" mat-raised-button color="primary" matStepperNext>Next</button>
         </div>
@@ -52,7 +63,7 @@
                       required></textarea>
           </mat-form-field>
         </div>
-        <div>
+        <div class="d-flex justify-content-between">
           <button class="m-1" mat-button matStepperPrevious>Back</button>
           <button class="m-1" mat-raised-button color="primary" matStepperNext>Next</button>
         </div>
@@ -61,12 +72,12 @@
     <mat-step>
       <ng-template matStepLabel>Done</ng-template>
       <p>Click Save button to save the visit.</p>
-      <div>
-        <button class="m-1" mat-stroked-button matStepperPrevious>Back</button>
-        <button class="m-1" mat-stroked-button (click)="stepper.reset()">Reset</button>
+      <div class="d-flex justify-content-between">
+        <div>
+          <button class="m-1" mat-stroked-button matStepperPrevious>Back</button>
+          <button class="m-1" mat-stroked-button (click)="stepper.reset()">Reset</button>
+        </div>
         <button class="m-1" mat-raised-button color="primary" (click)="onSave()">Save</button>
-      </div>
-      <div>
       </div>
     </mat-step>
   </mat-vertical-stepper>

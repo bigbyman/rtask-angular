@@ -27,16 +27,20 @@ import {AddVisitComponent} from './component/add-visit/add-visit.component';
 import {VisitStepperComponent} from './component/visit-stepper/visit-stepper.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatSelectModule} from '@angular/material/select';
-import { VisitsViewComponent } from './component/visits-view/visits-view.component';
-import { VisitSearchComponent } from './component/visit-search/visit-search.component';
-import { VisitListComponent } from './component/visit-list/visit-list.component';
-import { VisitItemComponent } from './component/visit-item/visit-item.component';
+import {VisitsViewComponent} from './component/visits-view/visits-view.component';
+import {VisitSearchComponent} from './component/visit-search/visit-search.component';
+import {VisitListComponent} from './component/visit-list/visit-list.component';
+import {VisitItemComponent} from './component/visit-item/visit-item.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatCardModule} from '@angular/material/card';
 import {FilterVisitsService} from './service/filter-visits.service';
 import {MatIconModule} from '@angular/material/icon';
 import {AddPatientService} from './service/add-patient.service';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 const appRoutes: Routes = [
   {path: 'patients', component: PatientsViewComponent},
@@ -82,10 +86,12 @@ const appRoutes: Routes = [
     MatStepperModule,
     ReactiveFormsModule,
     MatSelectModule,
-    MatDatepickerModule,
     MatNativeDateModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    MatDividerModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule
   ],
   providers: [
     PatientService,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Patient} from '../../model/patient';
 import {PatientService} from '../../service/patient.service';
 
@@ -10,12 +10,15 @@ import {PatientService} from '../../service/patient.service';
 export class AddVisitComponent implements OnInit {
 
   patients: Patient[];
+  isLoading = true;
 
-  constructor(private patientService: PatientService) { }
+  constructor(private patientService: PatientService) {
+  }
 
   ngOnInit(): void {
     this.patientService.getAllPatients()
-      .subscribe(data => this.patients = data);
+      .subscribe(data => this.patients = data, error => {
+      }, () => this.isLoading = false);
   }
 
 }

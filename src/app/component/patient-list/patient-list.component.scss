@@ -1,5 +1,4 @@
 .patient-list-container {
-  margin-top: 15px;
   padding-left: 10px;
   padding-right: 10px;
   display: block;
@@ -7,5 +6,9 @@
 }
 
 .patient-list-item {
+  width: 100%;
+}
+
+.spinner {
   width: 100%;
 }

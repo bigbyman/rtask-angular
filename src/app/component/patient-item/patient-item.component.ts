@@ -15,6 +15,8 @@ export class PatientItemComponent implements OnInit {
 
   isDeleted = false;
 
+  peselLength = 11;
+
   showSaveButton = false;
   showCancelButton = false;
   nameInputClass = 'hidden-input';
@@ -52,10 +54,15 @@ export class PatientItemComponent implements OnInit {
   }
 
   onSave() {
+    if (!this.patient.name || !this.patient.lastName || !this.patient.pesel) {
+      this.showSnackBar('Data not complete', 'HIDE', false);
+      return;
+    }
+
     if (!/^\d+$/.test(this.patient.pesel)) {
       this.showSnackBar('Pesel must contain only digits', 'HIDE', false);
     } else if (this.patient.pesel.length !== 11) {
-    this.showSnackBar('PESEL must contain 11 digits', 'HIDE', false);
+      this.showSnackBar('PESEL must contain 11 digits', 'HIDE', false);
     } else {
       if (this.patient.id === undefined) {
         this.savePost();
@@ -101,8 +108,8 @@ export class PatientItemComponent implements OnInit {
     if (this.patient.id !== undefined) {
       this.patientService.deletePatient(this.patient.id)
         .subscribe((v) => {
-          this.isDeleted = true;
-        },
+            this.isDeleted = true;
+          },
           (error => {
             this.showSnackBar(error, 'HIDE', false);
           }));

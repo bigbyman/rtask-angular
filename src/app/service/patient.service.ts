@@ -3,7 +3,7 @@ import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {Observable, throwError} from 'rxjs';
 import {Patient} from '../model/patient';
-import {catchError} from 'rxjs/operators';
+import {catchError, delay} from 'rxjs/operators';
 import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Injectable({
@@ -18,11 +18,19 @@ export class PatientService {
   }
 
   public getAllPatients(): Observable<Patient[]> {
-    return this.http.get<Patient[]>(this.patientApiUrl);
+    return this.http.get<Patient[]>(this.patientApiUrl)
+      .pipe(
+        delay(2000),
+        catchError(this.handleError)
+      );
   }
 
   public getAllPatientsBy(name: string, lastName: string, pesel: string): Observable<Patient[]> {
-    return this.http.get<Patient[]>(this.patientApiUrl + '/query?name=' + name + '&lastName=' + lastName + '&pesel=' + pesel);
+    return this.http.get<Patient[]>(this.patientApiUrl + '/query?name=' + name + '&lastName=' + lastName + '&pesel=' + pesel)
+      .pipe(
+        delay(2000),
+        catchError(this.handleError)
+      );
   }
 
   public savePatient(patient: Patient) {

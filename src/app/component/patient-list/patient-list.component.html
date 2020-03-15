@@ -1,8 +1,10 @@
-<div class="patient-list-container d-flex flex-column align-items-center">
-  <div *ngFor="let patient of patients" class="patient-list-item">
+<mat-progress-bar style=" height: 2px;left: 0; top: 0; width: 100vw; position: fixed;" mode="indeterminate" *ngIf="isLoading"></mat-progress-bar>
+
+<div class="patient-list-container d-flex flex-column align-items-center justify-content-center">
+  <div *ngFor="let patient of patients" class="patient-list-item" @fadeIn>
     <app-patient-item [patient]="patient"></app-patient-item>
   </div>
-  <div *ngIf="patients?.length == 0">
+  <div *ngIf="isEmpty" class="d-flex flex-column justify-content-center align-items-center">
     No patients available
   </div>
 </div>

@@ -1,12 +1,12 @@
 .visit-item {
-  border-top: 1px solid black;
-  border-bottom: 2px solid black;
-  margin-bottom: 5px;
-  padding: 5px;
+  border-bottom: 1px solid black;
+  border-top: 2px solid black;
+  margin-bottom: 10px;
   width: 100%
 }
 
 .visit-info-item {
+  flex: 1 1 auto;
   margin: 10px;
 }
 
@@ -16,4 +16,17 @@
 
 .patient-icon, .event-icon {
   color: #3494a0;
+}
+
+.visit-data-column {
+  flex: 1 1 auto;
+}
+
+.visit-panel-patient-data {
+  flex-grow: 100;
+}
+
+.visit-patient-name {
+  font-weight: 700;
+  padding-left: 15px;
 }

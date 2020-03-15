@@ -14,6 +14,7 @@ import {MatStepper} from '@angular/material/stepper';
 export class VisitStepperComponent implements OnInit {
   @ViewChild('stepper', {static: true}) stepper: MatStepper;
   @Input() patients: Patient[];
+  @Input() isSelectLoading = true;
 
   textAreaMaxLength = 255;
 
@@ -28,7 +29,7 @@ export class VisitStepperComponent implements OnInit {
 
   ngOnInit() {
     this.selectFormGroup = this._formBuilder.group({
-      selectCtrl: [Validators.required]
+      selectCtrl: ['', Validators.required]
     });
     this.caseStudyFormGroup = this._formBuilder.group({
       interview: ['', Validators.required],
@@ -49,7 +50,7 @@ export class VisitStepperComponent implements OnInit {
     visit.treatment = this.diagnosisTreatmentFormGroup.controls.treatment.value;
     visit.localDate = new Date().toLocaleDateString();
 
-    this.visitService.saveVisit(visit, this.selectFormGroup.controls.selectCtrl.value)
+    this.visitService.saveVisit(visit, this.selectFormGroup.controls.selectCtrl.value.id)
       .subscribe(() => {
         this._matSnackbar.open('Success', 'HIDE', {duration: 2000});
         this.stepper.reset();

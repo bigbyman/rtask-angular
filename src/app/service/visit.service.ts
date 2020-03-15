@@ -3,7 +3,7 @@ import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {Visit} from '../model/visit';
 import {Observable, throwError} from 'rxjs';
-import {catchError} from 'rxjs/operators';
+import {catchError, delay} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +11,7 @@ import {catchError} from 'rxjs/operators';
 export class VisitService {
 
   private visitApiUrl = environment.visitApiUrl;
+  private delay = 2000;
 
   constructor(private http: HttpClient) {
   }
@@ -18,6 +19,7 @@ export class VisitService {
   public getAllVisits(): Observable<Visit[]> {
     return this.http.get<Visit[]>(this.visitApiUrl)
       .pipe(
+        delay(this.delay),
         catchError(this.handleError)
       );
   }
@@ -32,6 +34,7 @@ export class VisitService {
   public getAllVisitsByDate(date: string){
     return this.http.get<Visit[]>(this.visitApiUrl + '/byDate?date=' + date)
       .pipe(
+        delay(this.delay),
         catchError(this.handleError)
       );
   }
@@ -39,6 +42,7 @@ export class VisitService {
   public getAllVisitsByPesel(pesel: string) {
     return this.http.get<Visit[]>(this.visitApiUrl + '/forPatient?pesel=' + pesel)
       .pipe(
+        delay(this.delay),
         catchError(this.handleError)
       );
   }

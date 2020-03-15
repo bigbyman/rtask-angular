@@ -1,25 +1,25 @@
-<mat-expansion-panel class="visit-item">
+<mat-expansion-panel class="visit-item" expanded="false">
   <mat-expansion-panel-header>
     <mat-panel-title>
-        <div class="d-flex align-items-center p-1">
-          <i class="material-icons event-icon">
-            event
-          </i>
-          {{visit.localDate}}
-        </div>
-        <div class="d-flex align-items-center p-1">
-          <i class="material-icons patient-icon">
-            account_box
-          </i>
-          {{patient.name}}
-          {{patient.lastName}}
-        </div>
+      <div class="d-flex p-1">
+        <i class="material-icons event-icon">
+          event
+        </i>
+        {{visit.localDate}}
+      </div>
     </mat-panel-title>
-    <mat-panel-description class="d-flex align-items-center">
+    <mat-panel-description class="d-flex align-items-center justify-content-start visit-panel-patient-data">
       PESEL: {{patient.pesel}}
+      <div class="visit-patient-name d-flex align-items-center">
+        <i class="material-icons patient-icon">
+          account_box
+        </i>
+        {{patient.name}}
+        {{patient.lastName}}
+      </div>
     </mat-panel-description>
   </mat-expansion-panel-header>
-  <div class="d-flex flex-md-row flex-column">
+  <div class="d-flex flex-column">
     <mat-card class="visit-info-item">
       <mat-card-title class="d-flex align-items-center">
         <i class="material-icons visit-data-icon">
@@ -43,7 +43,7 @@
       </div>
     </mat-card>
   </div>
-  <div class="d-flex flex-md-row flex-column">
+  <div class="d-flex flex-column">
     <mat-card class="visit-info-item flex-grow-1">
       <mat-card-title class="d-flex align-items-center">
         <i class="material-icons visit-data-icon">
