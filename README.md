@@ -1,7 +1,7 @@
 # RTaskAngular
 
 To start the application run
-ng serve --open
+`ng serve --open`
 
 ## Development server
 
