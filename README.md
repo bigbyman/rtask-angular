@@ -1,6 +1,7 @@
 # RTaskAngular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.24.
+To start the application run
+ng serve --open
 
 ## Development server
 
